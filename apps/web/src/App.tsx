@@ -4,6 +4,8 @@ import { userStore } from "./stores/user_store";
 import AuthActions from './actions/auth_actions';
 import { observer } from 'mobx-react-lite';
 
+AuthActions.authCheckToken()
+
 const App = observer(() => {
   return (
     <div style={{ padding: '1rem' }}>
