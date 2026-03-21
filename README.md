@@ -8,8 +8,8 @@ video/audio sessions, and intelligent note generation.
 ### Frontend
 | Package | Purpose |
 |---|---|
-| React 19 | UI framework |
-| TanStack Router | File-based type-safe routing |
+| React 19 | UI framework: donw |
+| TanStack Router | File-based type-safe routing:  done |
 | TanStack Query | Server state & caching |
 | shadcn/ui | Component library |
 | ai-elements | Streaming AI UI primitives |

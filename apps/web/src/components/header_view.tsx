@@ -2,6 +2,7 @@ import authActions from '../actions/auth_actions';
 import { userStore } from '../stores/user_store';
 import { observer } from "mobx-react-lite"
 import Languages from '../languages/languages';
+import React from 'react';
 
 const HeaderView = observer(() => {
   const handleChange = (event: any) => {

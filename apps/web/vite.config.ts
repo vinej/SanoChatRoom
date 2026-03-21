@@ -1,17 +1,24 @@
 import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
 import path from "path"
+import react from "@vitejs/plugin-react"
+import tailwind from "@tailwindcss/vite"
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    // The order doesn’t strictly matter, but this is conventional
+    tailwind(),
+    react(),
+  ],
   resolve: {
     alias: {
-      "@db": path.resolve(__dirname, "../../packages/db/src")
-    }
+      "@db": path.resolve(__dirname, "../../packages/db/src"),
+      "@": path.resolve(__dirname, "src")
+    },
   },
-  build: {
+    build: {
     rollupOptions: {
       // If you want to exclude this shared package from bundling
       external: ["@sanochatroom/db"]
     }
   }
 })
+

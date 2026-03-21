@@ -2,8 +2,8 @@
   "private": true,
   "name": "@sanochatroom/root",
   "workspaces": [
-    "packages/*",
-    "apps/web"
+    "apps/web",
+    "packages/db"
   ],
   "devDependencies": {
     "typescript": "^5.9.2"

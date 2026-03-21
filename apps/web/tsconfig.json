@@ -1,12 +1,17 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "@db/*": ["../../packages/db/src/*"]
+    },
     "rootDir": "src",
     "outDir": "dist"
   },
   "references": [
-    { "path": "../../packages/db" }
+    { "path": "../../packages/db/" }
   ],
   "include": ["src"]
 }

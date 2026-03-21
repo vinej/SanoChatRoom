@@ -3,6 +3,7 @@ import { chatbotStore } from '../stores/chatbot_store';
 import { useState } from "react";
 import { observer } from "mobx-react-lite"
 import Languages from '../languages/languages';
+import React from 'react';
 
 const ChatbotView = observer(() => {
 

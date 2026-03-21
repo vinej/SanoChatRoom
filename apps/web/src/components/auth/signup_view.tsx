@@ -4,6 +4,7 @@ import Validator from '../../languages/validators';
 import { FieldType } from '../../languages/fieldtypes';
 import Languages from '../../languages/languages';
 import { observer } from "mobx-react-lite"
+import React from 'react';
 
 const SignUpView = observer(() => {
   const [name, setName] = useState<string>('')
