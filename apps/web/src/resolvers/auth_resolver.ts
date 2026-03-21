@@ -32,6 +32,8 @@ export default function(action: Action, next: any): resolver {
     case t.authToken:
     case t.authRefreshToken:
     case t.authLogin:
+      authStore.signInOrUp(action.payload.token, action.payload.name)
+      break;
     case t.authSignUp: 
       authStore.signInOrUp(action.payload.token, action.payload.name)
       if (routeStore.route == "signup" || routeStore.route == "login"){

@@ -1,70 +1,37 @@
-import LoginView from "./components/auth/login_view";
-import SignUpView from "./components/auth/signup_view";
-import TodosView from "./components/todo_view";
-import WelcomeView from "./components/welcome_view";
-import Routections from "./actions/route_actions";
-import AuthActions from "./actions/auth_actions";
-import FooterView from "./components/footer_view";
-import HeaderView from "./components/header_view";
+// src/App.tsx
+import { Link, Outlet } from '@tanstack/react-router'
 import { userStore } from "./stores/user_store";
-import { routeStore } from "./stores/route_store";
-import { observer } from "mobx-react-lite"
-import Languages from "./languages/languages";
-import AboutView from "./components/about_view";
-import ChatbotView from "./components/chatbot_view";
-import WaitView from "./components/wait_view";
-import { waitStore } from "./stores/wait_store";
+import AuthActions from './actions/auth_actions';
+import { observer } from 'mobx-react-lite';
 
-export const App = observer(() => {
-  const navigate = (page: string) => {
-    window.history.pushState('', '', page === '/' ? '/' : `/${page}`);
-    Routections.routeNaviage(page);
-  };
-
-  const renderPage = () => {
-    if (userStore.authenticated === false && routeStore.route != 'login' && routeStore.route != 'signup') {
-      return <LoginView />;
-    }
-    else {
-      if (userStore.authenticated === true && (routeStore.route == 'login' || routeStore.route == 'signup')) {
-        routeStore.route = '/about';
-      }
-
-      switch (routeStore.route) {
-        case 'login':
-          return <LoginView />;
-        case 'signup':
-          return <SignUpView />;
-        case 'about':
-          return <AboutView />;
-        case 'todo':
-          return <WaitView waitStore={waitStore}><TodosView /></WaitView>
-        case 'chatbot':
-          return <WaitView waitStore={waitStore}><ChatbotView /></WaitView>;
-        default:
-          return <WelcomeView />;
-      }
-    }
-  };
-
+const App = observer(() => {
   return (
-    <div>
-      <HeaderView />
-      <div className='mainmenu'>
-        <div>
-          {userStore.authenticated ? <a onClick={() => navigate('/')}>{Languages.GetLabel("welcome")}</a> : null}
-          {userStore.authenticated ? <a onClick={() => navigate('todo')}>{Languages.GetLabel("todo")}</a> : null}
-          {userStore.authenticated ? <a onClick={() => navigate('chatbot')}>{Languages.GetLabel("chatbot")}</a> : null}
-          {userStore.authenticated ? <a onClick={() => AuthActions.authSignOut()}>{Languages.GetLabel("signout")}</a> : null}
-          {userStore.authenticated ? <a onClick={() => navigate('about')}>{Languages.GetLabel("about")}</a> : null}
-        </div>
-        {!userStore.authenticated && routeStore.route != 'signup' ? <a className="floatright" onClick={() => navigate('signup')}>{Languages.GetLabel("signup")}</a> : null}
-        {!userStore.authenticated && routeStore.route == 'signup' ? <a className="floatright" onClick={() => navigate('login')}>{Languages.GetLabel("login")}</a> : null}
-      </div>
-      <main>
-        {renderPage()}
-      </main>
-      <FooterView />
+    <div style={{ padding: '1rem' }}>
+      <header>
+        <nav style={{ display: 'flex', gap: '1rem' }}>
+          {!userStore.authenticated ? (
+            <>
+              <Link to="/">Welcome</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </>
+          ) : (
+            <>
+              <Link to="/about">About</Link>
+              <Link to="/todo">Todo</Link>
+              <Link to="/chatbot">Chatbot</Link>
+              <button onClick={() => (AuthActions.authSignOut(), location.reload())}>
+                Logout
+              </button>
+            </>
+          )}
+        </nav>
+      </header>
+
+      <hr />
+      <Outlet />
     </div>
-  );
-})   
+  )
+})
+
+export default App

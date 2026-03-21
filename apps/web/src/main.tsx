@@ -1,16 +1,9 @@
-import { createRoot } from "react-dom/client";
-import { StrictMode } from "react";
-import { App } from "./App";
-import { routeStore } from "./stores/route_store";
-import AuthActions from "./actions/auth_actions";
-
-let browserPath = window.location.pathname.replace('/', '');
-routeStore.route = browserPath;
-
-AuthActions.authCheckToken()
-
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from './routes'
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+)

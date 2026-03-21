@@ -1,7 +1,10 @@
-import { action } from 'mobx'
-import AuthActions from '../actions/auth_actions'
 import { userStore } from '../stores/user_store'; 
-import { usersApi } from '../api/users.api';
+import Routections from '../actions/route_actions';
+
+const navigate = (page: string) => {
+    window.history.pushState('', '', page === '/' ? '/' : `/${page}`);
+    Routections.routeNaviage(page);
+  };
 
 export default class AuthStore {
   constructor() {
@@ -26,7 +29,7 @@ export default class AuthStore {
       userStore.authenticated = true
       userStore.name = name
       userStore.errorMessage = ''
-      //AuthActions.authSetAuthorizations()
+      userStore.token = token
     } else {
       userStore.init()
     }
@@ -39,6 +42,8 @@ export default class AuthStore {
     userStore.name = name;
     userStore.errorMessage = '';
     userStore.token = token
+    navigate('chatbot')
+    //location.reload()
     //AuthActions.authSetAuthorizations()
   }
 
@@ -46,6 +51,7 @@ export default class AuthStore {
     localStorage.removeItem('remux-token');
     localStorage.removeItem('remux-name');
     userStore.init()
+    navigate('/')
   }
 
   authError(error:" string") {
