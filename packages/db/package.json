@@ -1,0 +1,12 @@
+{
+  "name": "@sanochatroom/db",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "mobx": "^6.15.0"
+  }
+}

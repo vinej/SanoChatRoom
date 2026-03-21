@@ -1,4 +1,4 @@
-# SanoTalk 🩺🎙️
+# SanoChatRoom 🩺🎙️
 
 A real-time AI-powered medical conversation platform with transcription, live
 video/audio sessions, and intelligent note generation.
@@ -45,7 +45,7 @@ video/audio sessions, and intelligent note generation.
 
 ### 1. Clone & Install
 \`\`\`bash
-git clone https://github.com/vinej/SanoTalk.git
+git clone https://github.com/vinej/SanoChatRoom.git
 cd SanoTalk
 pnpm install
 \`\`\`

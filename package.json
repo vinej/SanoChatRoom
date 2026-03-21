@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "@sanochatroom/root",
+  "workspaces": [
+    "packages/*",
+    "apps/web"
+  ],
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  },
+"scripts": {
+    "build": "pnpm -r build",
+    "dev:web": "pnpm --filter @sanochastroom/web dev"
+  }
+}

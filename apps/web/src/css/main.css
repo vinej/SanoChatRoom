@@ -1,0 +1,19 @@
+.my-hover {
+ color: black;
+}
+
+.my-hover:hover {
+  color:aqua;
+}
+
+.waiting {
+   color: red;
+}
+
+.mainmenu {
+  background-color: cornsilk;
+}
+
+.floatright {
+  float: right;
+}
