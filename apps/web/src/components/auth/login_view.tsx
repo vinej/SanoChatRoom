@@ -6,6 +6,7 @@ import Languages from '../../languages/languages';
 import { observer } from "mobx-react-lite"
 import { authStore } from '../../stores/auth_store';
 import React from 'react';
+import { Button } from '../ui/button';
 
 const LoginView = observer(() => {
 
@@ -48,7 +49,7 @@ const LoginView = observer(() => {
           {...(authStore.error != '' ? { error: true, helperText: "Invalid email or password" } : {})}
         />
       <div>
-        <button onClick={handleSend}>{Languages.GetLabel('login')}</button>
+        <Button onClick={handleSend}>{Languages.GetLabel('login')}</Button>
       </div>
 
 
