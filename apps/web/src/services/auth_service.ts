@@ -4,18 +4,7 @@ import { Service } from '../interfaces/service'
 import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { AppRouter } from '@ltrpc/router/router';
 import { User } from '@ltrpc/router/model/user';
-import superjson from 'superjson';
-
-//     👆 **type-only** imports are stripped acd ..t build time
- 
-// Pass AppRouter as a type parameter. 👇 This lets `trpc` know
-// what procedures are available on the server and their input/output types.
-const ltrpc = createTRPCClient<AppRouter>({
-
-  links: [
-    httpBatchLink({ url: 'http://localhost:3000/trpc', transformer: superjson }),
-  ],
-}) ;
+import {ltrpc} from  '../main'
 
 export default class AuthService implements Service {
   private static instanceService: AuthService | null = null
