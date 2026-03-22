@@ -1,5 +1,5 @@
 
-import { Action } from '@db/model/action'
+import { Action } from '@ltrpc/router/model/action'
 import { resolver } from '../types/resolver';
 import { waitStore } from '../stores/wait_store';
 import { waitPrefixType, waitTypes } from '../actions/wait_actions';

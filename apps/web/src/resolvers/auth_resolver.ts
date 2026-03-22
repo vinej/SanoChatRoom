@@ -1,5 +1,5 @@
 
-import { Action } from '@db/model/action'
+import { Action } from '@ltrpc/router/model/action'
 import { authStore } from '../stores/auth_store'
 import { userStore } from '../stores/user_store'
 import { authTypes, authPrefixType  } from '../actions/auth_actions'

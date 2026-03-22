@@ -1,6 +1,6 @@
 import Languages from '../languages/languages';
-import { Action } from '@db/model/action';
-import { Todo } from '@db/model/todo';
+import { Action } from '@ltrpc/router/model/action';
+import { Todo } from '@ltrpc/router/model/todo';
 import { dispatch } from '../resolvers/dispatcher';
 import TodoService from '../services/todo_service';
 

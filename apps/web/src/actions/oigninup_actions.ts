@@ -1,5 +1,5 @@
 import Languages from '../languages/languages'
-import { Action } from '@db/model/action'
+import { Action } from '@ltrpc/router/model/action'
 import { dispatch } from '../resolvers/dispatcher'
 
 export let signInUpPrefixType = "signInUpValidate_"

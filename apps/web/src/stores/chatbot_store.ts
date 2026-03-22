@@ -1,4 +1,4 @@
-import { Chatbot } from '@db/model/chatbot'
+import { Chatbot } from '@ltrpc/router/model/chatbot'
 import { makeAutoObservable } from "mobx"
 
 export default class ChatbotStore {

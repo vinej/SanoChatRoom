@@ -1,7 +1,18 @@
 import axios from 'axios'
 import { ROOT_URL, HEADERS, PARAMETERS } from './config_service'
 import { Service } from '../interfaces/service'
-import {trpc} from '../main';
+import { createTRPCClient, httpBatchLink } from '@trpc/client';
+import { AppRouter } from '@ltrpc/router/router';
+
+//     👆 **type-only** imports are stripped acd ..t build time
+ 
+// Pass AppRouter as a type parameter. 👇 This lets `trpc` know
+// what procedures are available on the server and their input/output types.
+const ltrpc = createTRPCClient<AppRouter>({
+  links: [
+    httpBatchLink({ url: 'http://localhost:3000/trpc' }),
+  ],
+}) ;
 
 export default class AuthService implements Service {
   private static instanceService: AuthService | null = null
@@ -33,8 +44,9 @@ export default class AuthService implements Service {
   }
 
   async login({ email, password }: { email: string; password: string }, next: (token: string, name: string) => void, err: (error: any) => void) {
-       const user = await trpc.userById.query('1') 
+       const user = await ltrpc.userLogin.mutate({ email, password })
        if (user) {
+        console.log("fake-token", user.name);
          next('fake-token', user.name)
        } else {
          err('User not found')

@@ -1,4 +1,4 @@
-import { Action } from '@db/model/action';
+import { Action } from '@ltrpc/router/model/action';
 
 import { thunkResolver }          from './thunk_resolver';
 import { loggerResolver }         from './logger_resolver';

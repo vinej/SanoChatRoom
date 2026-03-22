@@ -1,6 +1,6 @@
 import '../index.css';
 import { observer } from "mobx-react-lite"
-import { Todo } from "@db/model/todo";
+import { Todo } from "@ltrpc/router/model/todo";
 import TodoActions from '../actions/todo_actions'
 import { todoStore } from "../stores/todo_store";
 import Languages from "../languages/languages";

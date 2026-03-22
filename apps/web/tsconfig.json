@@ -5,8 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@db/*": ["../../packages/db/src/*"],
-      "@server/*": ["../../apps/server/src/*"]
+      "@ltrpc/router/*": ["../../packages/ltrpc/src/*"]
     },
     "rootDir": "src",
     "outDir": "dist",
@@ -15,8 +14,7 @@
     "declarationMap": true
   },
   "references": [
-     { "path": "../../packages/db/"}, 
-     { "path": "../../apps/server/"}
+     { "path": "../../packages/ltrpc/"}
   ],
   "include": ["src"]
 }

@@ -1,8 +1,14 @@
-import { createHTTPServer } from "@trpc/server/adapters/standalone";
-import { appRouter } from "./appRouter";
- 
-const server = createHTTPServer({
+import express from 'express';
+import cors from 'cors';
+import { createExpressMiddleware } from '@trpc/server/adapters/express';
+import { appRouter } from '@ltrpc/router/router';
+
+const app = express();
+
+app.use(cors({ origin: 'http://localhost:5173' }));
+
+app.use('/trpc', createExpressMiddleware({
   router: appRouter,
-});
- 
-server.listen(3000);
+}));
+
+app.listen(3000);

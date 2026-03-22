@@ -11,14 +11,13 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-      "@server": path.resolve(__dirname, "../../apps/server/src"),
-      "@db": path.resolve(__dirname, "../../packages/db/src")
+      "@ltrpc/router": path.resolve(__dirname, "../../packages/ltrpc/src")
     },
   },
     build: {
     rollupOptions: {
       // If you want to exclude this shared package from bundling
-      external: ["@sanochatroom/db", "@sanochatroom/server"],
+      external: ["@sanochatroom/db", "@sanochatroom/ltrpc"],
     }
   }
 })

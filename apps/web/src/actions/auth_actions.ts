@@ -1,7 +1,7 @@
 
 import { dispatch } from '../resolvers/dispatcher';
 import AuthService from '../services/auth_service';
-import { Action } from '@db/model/action';
+import { Action } from '@ltrpc/router/model/action';
 import {userStore } from '../stores/user_store' 
 
 export let authPrefixType = "auth_"

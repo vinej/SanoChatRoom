@@ -1,5 +1,5 @@
 import { dispatch } from '../resolvers/dispatcher'
-import { Action } from '@db/model/action';
+import { Action } from '@ltrpc/router/model/action';
 
 // same name of the type is the name of the function, but with a underscore. The pattern need that
 export let waitPrefixType = 'wait_'

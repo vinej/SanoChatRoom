@@ -1,7 +1,7 @@
 import { chatbotStore } from '../stores/chatbot_store'
 import { chatbotTypes, chatbotPrefixType } from '../actions/chatbot_actions'
 import { resolver } from '../types/resolver';
-import { Action } from '@db/model/action'
+import { Action } from '@ltrpc/router/model/action'
 import { routeTypes } from '../actions/route_actions';
 
 export default function (action: Action, next: any): resolver {

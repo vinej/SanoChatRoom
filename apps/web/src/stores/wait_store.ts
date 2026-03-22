@@ -1,4 +1,4 @@
-import { Wait } from '@db/model/wait'
+import { Wait } from '@ltrpc/router/model/wait'
 import { makeAutoObservable } from "mobx"
 
 export default class WaitStore {

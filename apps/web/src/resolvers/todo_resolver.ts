@@ -2,7 +2,7 @@ import { todoStore } from '../stores/todo_store'
 import { todoTypes, todoPrefixType } from '../actions/todo_actions'
 import { routeTypes } from '../actions/route_actions';
 import { resolver } from '../types/resolver';
-import { Action } from '@db/model/action'
+import { Action } from '@ltrpc/router/model/action'
 import { waitTypes } from '../actions/wait_actions';
 import { dispatch } from '../resolvers/dispatcher';
 

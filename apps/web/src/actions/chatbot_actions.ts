@@ -1,4 +1,4 @@
-import { Action } from '@db/model/action';
+import { Action } from '@ltrpc/router/model/action';
 import { dispatch } from '../resolvers/dispatcher';
 import ChatbotService from '../services/chatbot_service';
 import { waitTypes } from './wait_actions';

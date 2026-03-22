@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_URL, HEADERS, PARAMETERS } from './config_service';
 import { Service } from '../interfaces/service';
-import { Entity } from '@db/model/entity';
+import { Entity } from '@ltrpc/router/model/entity';
 
 export default class CrudService implements Service {
 

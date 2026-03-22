@@ -1,4 +1,4 @@
-import { Todo } from '@db/model/todo'
+import { Todo } from '@ltrpc/router/model/todo'
 import { makeAutoObservable } from "mobx"
 
 export default class TodoStore {

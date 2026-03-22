@@ -1,4 +1,4 @@
-import { User } from '@db/model/user'
+import { User } from '@ltrpc/router/model/user'
 import { makeAutoObservable } from "mobx"
 
 export default class UserStore {

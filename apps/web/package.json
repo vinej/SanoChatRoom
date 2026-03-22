@@ -1,6 +1,6 @@
 {
   "name": "@sanochatroom/web",
-  "private": true,
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -12,7 +12,6 @@
     "@emotion/react": "^11.14.0",
     "@react-router/node": "7.13.1",
     "@react-router/serve": "7.13.1",
-    "@sanochatroom/db": "workspace:*",
     "@tanstack/react-query": "^5.94.5",
     "@tanstack/react-router": "^1.168.1",
     "@trpc/client": "^11.14.1",

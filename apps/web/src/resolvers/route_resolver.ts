@@ -1,7 +1,7 @@
 
 import { routeStore } from '../stores/route_store'
 import { routeTypes, routePrefixType } from '../actions/route_actions'
-import { Action } from '@db/model/action'
+import { Action } from '@ltrpc/router/model/action'
 import { resolver } from '../types/resolver';
 import { userStore } from '../stores/user_store';
 

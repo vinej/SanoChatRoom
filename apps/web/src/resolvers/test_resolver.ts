@@ -1,5 +1,5 @@
 import { resolver } from "../types/resolver";
-import { Action } from "@db/model/action";
+import { Action } from "@ltrpc/router/model/action";
 
 var testFunction: any = null
 

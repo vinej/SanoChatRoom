@@ -1,4 +1,4 @@
-import { Action } from '@db/model/action'
+import { Action } from '@ltrpc/router/model/action'
 import { resolver } from '../types/resolver';
 
 export function thunkResolver(action: Action, next: any): resolver {
