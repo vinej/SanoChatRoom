@@ -1,17 +1,20 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@ltrpc/router/*": ["../../packages/ltrpc/src/*"]
+      "@ltrpc/router/*": ["../../packages/ltrpc/src/*"],
+      "@better-auth/client": ["node_modules/@better-auth/client"]
     },
     "rootDir": "src",
     "outDir": "dist",
     "composite": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
   },
   "references": [
      { "path": "../../packages/ltrpc/"}

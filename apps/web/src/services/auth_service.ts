@@ -4,7 +4,7 @@ import { Service } from '../interfaces/service'
 import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { AppRouter } from '@ltrpc/router/router';
 import { User } from '@ltrpc/router/model/user';
-import {ltrpc} from  '../main'
+import {ltrpc} from  '@/lib/ltrpc-client'
 
 export default class AuthService implements Service {
   private static instanceService: AuthService | null = null

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities";
-
+@import "@daveyplate/better-auth-ui/css";
 
 /* restore border for now */
 input:not([role]),

@@ -20,8 +20,8 @@ video/audio sessions, and intelligent note generation.
 ### Backend
 | Package | Purpose |
 |---|---|
-| TypeScript | Language |
-| tRPC | End-to-end type-safe API |
+| TypeScript | Language : done |
+| tRPC | End-to-end type-safe API: done |
 | Mastra | AI agent orchestration |
 | Drizzle ORM | Type-safe database access |
 | PostgreSQL | Primary database |

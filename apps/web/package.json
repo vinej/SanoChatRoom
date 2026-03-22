@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@daveyplate/better-auth-ui": "^3.3.15",
     "@emotion/react": "^11.14.0",
     "@react-router/node": "7.13.1",
     "@react-router/serve": "7.13.1",
@@ -23,6 +24,7 @@
     "lucide-react": "^0.577.0",
     "mobx": "^6.15.0",
     "mobx-react-lite": "^4.0.7",
+    "next": "^16.2.1",
     "postcss": "^8.5.8",
     "prop-types": "^15.8.1",
     "radix-ui": "^1.4.3",
