@@ -3,14 +3,17 @@ import { ROOT_URL, HEADERS, PARAMETERS } from './config_service'
 import { Service } from '../interfaces/service'
 import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { AppRouter } from '@ltrpc/router/router';
+import { User } from '@ltrpc/router/model/user';
+import superjson from 'superjson';
 
 //     👆 **type-only** imports are stripped acd ..t build time
  
 // Pass AppRouter as a type parameter. 👇 This lets `trpc` know
 // what procedures are available on the server and their input/output types.
 const ltrpc = createTRPCClient<AppRouter>({
+
   links: [
-    httpBatchLink({ url: 'http://localhost:3000/trpc' }),
+    httpBatchLink({ url: 'http://localhost:3000/trpc', transformer: superjson }),
   ],
 }) ;
 
@@ -44,13 +47,15 @@ export default class AuthService implements Service {
   }
 
   async login({ email, password }: { email: string; password: string }, next: (token: string, name: string) => void, err: (error: any) => void) {
-       const user = await ltrpc.userLogin.mutate({ email, password })
-       if (user) {
-        console.log("fake-token", user.name);
-         next('fake-token', user.name)
-       } else {
-         err('User not found')
-       }
+       await ltrpc.userLogin.mutate({ email, password }).then(response => {
+        const user = response as User;
+        console.log("AuthService login user", response as User);
+        next(user.token, user.name);
+      }).catch(error => {
+        console.error("AuthService login error", error);
+        err(error.message || "Login failed");
+      });
+
       //axios.post(`${ROOT_URL}/auth/login?${PARAMETERS()}`, { email, password })
       //  .then(response => {
       //    console.log(response.data.token)

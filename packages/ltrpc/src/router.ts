@@ -1,7 +1,10 @@
 import { initTRPC } from "@trpc/server";
 import { User } from "./model/user.js";
+import superjson from 'superjson';
 
-const t = initTRPC.create();
+const t = initTRPC.create({
+  transformer: superjson,
+});
 
 import { z } from "zod";
  
