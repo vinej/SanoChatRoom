@@ -10,8 +10,8 @@ video/audio sessions, and intelligent note generation.
 |---|---|
 | React 19 | UI framework: donw |
 | TanStack Router | File-based type-safe routing:  done |
-| TanStack Query | Server state & caching |
-| shadcn/ui | Component library |
+| TanStack Query | Server state & caching : not use into this example|
+| shadcn/ui | Component library: done |
 | ai-elements | Streaming AI UI primitives |
 | @json-render/* | Dynamic JSON-driven UI |
 | @livekit/components-react | Real-time audio/video |

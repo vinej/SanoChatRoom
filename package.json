@@ -3,6 +3,7 @@
   "name": "@sanochatroom/root",
   "workspaces": [
     "apps/web",
+    "apps/server",
     "packages/db"
   ],
   "devDependencies": {

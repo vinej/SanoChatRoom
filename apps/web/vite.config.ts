@@ -10,14 +10,15 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@db": path.resolve(__dirname, "../../packages/db/src"),
-      "@": path.resolve(__dirname, "src")
+      "@": path.resolve(__dirname, "src"),
+      "@server": path.resolve(__dirname, "../../apps/server/src"),
+      "@db": path.resolve(__dirname, "../../packages/db/src")
     },
   },
     build: {
     rollupOptions: {
       // If you want to exclude this shared package from bundling
-      external: ["@sanochatroom/db"]
+      external: ["@sanochatroom/db", "@sanochatroom/server"],
     }
   }
 })

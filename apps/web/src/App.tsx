@@ -3,6 +3,7 @@ import { Link, Outlet } from '@tanstack/react-router'
 import { userStore } from "./stores/user_store";
 import AuthActions from './actions/auth_actions';
 import { observer } from 'mobx-react-lite';
+import React from 'react';
 
 AuthActions.authCheckToken()
 

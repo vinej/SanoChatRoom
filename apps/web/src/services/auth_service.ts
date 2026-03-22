@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { ROOT_URL, HEADERS, PARAMETERS } from './config_service'
 import { Service } from '../interfaces/service'
+import {trpc} from '../main';
 
 export default class AuthService implements Service {
   private static instanceService: AuthService | null = null
@@ -31,15 +32,21 @@ export default class AuthService implements Service {
       });
   }
 
-  login({ email, password }: { email: string; password: string }, next: (token: string, name: string) => void, err: (error: any) => void) {
-    axios.post(`${ROOT_URL}/auth/login?${PARAMETERS()}`, { email, password })
-      .then(response => {
-        console.log(response.data.token)
-        next(response.data.token, response.data.name);
-      })
-      .catch(response => {
-        err(response.data)
-      });
+  async login({ email, password }: { email: string; password: string }, next: (token: string, name: string) => void, err: (error: any) => void) {
+       const user = await trpc.userById.query('1') 
+       if (user) {
+         next('fake-token', user.name)
+       } else {
+         err('User not found')
+       }
+      //axios.post(`${ROOT_URL}/auth/login?${PARAMETERS()}`, { email, password })
+      //  .then(response => {
+      //    console.log(response.data.token)
+      //    next(response.data.token, response.data.name);
+      //  })
+      //  .catch(response => {
+      //    err(response.data)
+      //  });
   }
 
   signUp({ name, email, password }: { name: string; email: string; password: string; }, next: (token: string, name: string) => void, err: (error: any) => void) {
